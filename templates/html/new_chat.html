@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<table width = "90%" id = "rezz">
+  <tr>
+  {% for avatar,nickname,message in text_to_chat %}
+        <tr>
+        <td class = "avatat_nickname_cell">
+        <p class = "avatat_nickname">
+        <font color = "white" size = "3px">{{ nickname }}</font>
+        </p>
+        <p class = "avatat_nickname">
+        <img class = "img_avatar" src="{% static "images/avatars/" %}{{avatar}}">
+        </p>
+        </td>
+        <td class = "mess">
+            <div class = "chat_mess">{{ message }}</div>
+        </td>
+        </tr>
+    {% endfor %}
+  </tr>
+</table>

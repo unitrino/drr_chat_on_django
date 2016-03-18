@@ -1,0 +1,31 @@
+{% load staticfiles %}
+
+<!doctype html>
+<head>
+<title>Durarara chat =)</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+</head>
+<body bgcolor = "black">
+    <p class = "text">
+        <br>
+        <img class = "img_center" src="{% static "images/logo.jpg" %}"/>
+        <br>
+    </p>
+    <p class = "text">
+        {% if err_no %}
+        <font color = "red" size = "10px">{{err_no}}</font>
+        {% endif %}
+    </p>
+        <div class = "text">
+        <form action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+             <input name = "password" type="password" size="30">
+             <p>
+             <div class = "login_form">
+                <button class="button_style" type="submit" name="check" value = "ENTER"><p style = "color: white;margin: 5px;">ENTER</p></button>
+            </div>
+            </p>
+        </form>
+        </div>
+</body>
+</html>

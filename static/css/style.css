@@ -1,0 +1,41 @@
+.text {
+    text-align:  center;
+}
+.img_center {
+   	align: center;
+}
+.button_style {
+   	background: black;
+   	width: 150px;
+   	height: 30px;
+   	border: 2px solid white;
+   	border-radius: 20px;
+}
+.login_form {
+    height: 30px;
+}
+
+.img_avatar {
+padding: 20px;
+width: 100px;
+height: 100px;
+}
+.text {
+text-align:  center;
+}
+.button_style {
+background: black;
+width: 150px;
+height: 30px;
+border: 2px solid white;
+border-radius: 20px;
+}
+.img_select_avatar
+{
+border: 10px solid white;
+border-radius: 20px;
+padding: 10px;
+width: 100px;
+height: 100px;
+
+}

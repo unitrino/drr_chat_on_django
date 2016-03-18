@@ -1,0 +1,58 @@
+{% load staticfiles %}
+
+<!doctype html>
+<head>
+<title>Durarara chat_^-^</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+    <script type="text/javascript" src = "{% static "js/script.js" %}"></script>
+</head>
+<body bgcolor = "black">
+<p class = "text">
+    {% if errors %}
+        {% for error in errors%}
+	    <font color = "red" size = "10px">{{error}}</font>
+	    <br>
+	    {% endfor %}
+	{% endif %}
+</p>
+<p class = "text">
+<font color = "white" size = "10px">Выберите аватар и укажите логин</font>
+<br>
+<br>
+<br>
+<font color = "white" size = "5px">Логин</font>
+</p>
+<form action="{% url 'avatar_and_nickname' %}" method="post">
+    {% csrf_token %}
+    <p class = "text">
+        <input name = "nickname" type="text" size = "20" value="{{ person_name }}">
+        {% if person_avatar %}
+        <input name = "avatar" id = "hidden_avatar" type="hidden" size = "1" id="{{ person_avatar }}" >
+        {% else %}
+        <input name = "avatar" id = "hidden_avatar" type="hidden" size = "1">
+        {% endif %}
+    </p>
+    <br>
+    <br>
+    <table align="center">
+      <tr>
+      {% for avatar_row in avatars_rows %}
+            <tr>
+                <td>
+                {% for avatar in avatar_row %}
+                <img onclick="select_avatar(id)" id = "{{ avatar }}" class = "img_avatar" src="{% static "images/avatars/" %}{{avatar}}"/>
+                {% endfor %}
+                </td>
+            </tr>
+      {% endfor %}
+      </tr>
+    </table>
+    <br>
+    <p class = "text">
+    <div style = "align: middle;height: 30px;margin:0 auto;width: 150px;">
+      <button <button class="button_style" type="submit" name="check"><p style = "color: white;margin: 5px;">SELECT</p></button>
+      </div>
+    </p>
+</form>
+</body>
+</html>
